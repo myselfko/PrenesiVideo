@@ -1,11 +1,11 @@
 
-$(() => {
-    $('.primer').click((e) => {
+$(document).ready(function() {
+    $('.primer').click(function(e) {
         $('#video-url').val(e.target.innerText);
         $('#prenesi').click();
     });
 
-    $('#prenesi').click(() => {
+    $('#prenesi').click(function() {
         const url = $('#video-url').val().toLowerCase();
         $('#video-url').val('');
         if (url.indexOf('rtvslo.si') != -1) {
@@ -22,7 +22,7 @@ function getRTVSlo(url) {
         type: 'GET',
         crossDomain: true,
         dataType: 'jsonp',
-        success: json => {
+        success: function(json) {
             const len = json.response.mediaFiles.length - 1;
             window.location = json.response.mediaFiles[len].streamers.http + '/' + json.response.mediaFiles[len].filename;
         }
@@ -38,7 +38,7 @@ function get24ur(url) {
             var section_id = data.match(/section_id = \"(.*?)\"/)[1];
 
             var url = 'https://gql.24ur.si/graphql?query=%7BvideoHlsUrl(id%3A%20' + media_id + ' siteId:1 sectionId:' + section_id + ')%20%7Burl%7Dvideo(id%3A' + media_id + ')%7Bimages%7Bhref%7D%7D%7D';
-            $.getJSON(url, json => {
+            $.getJSON(url, function(json) {
                 var param = json.data.videoHlsUrl.url.split("/");
                 var date = moment.unix(param[5]).format('YYYY/MM/DD');
                 window.location = 'http://vid01.24ur.com/' + date + '/' + param[6] + '-2.mp4';
