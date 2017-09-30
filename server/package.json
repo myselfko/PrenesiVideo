@@ -1,0 +1,28 @@
+{
+  "name": "PrenesiVideo",
+  "version": "1.0.0",
+  "description": "Server for webpage myselfko.github.io/PrenesiVideo",
+  "main": "server.js",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "cors": "^2.8.4",
+    "express": "^4.16.1",
+    "moment": "^2.18.1",
+    "request": "^2.83.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/myselfko/PrenesiVideo"
+  },
+  "author": "Myselfko",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/myselfko/PrenesiVideo/issues"
+  },
+  "homepage": "https://github.com/myselfko/PrenesiVideo"
+}
